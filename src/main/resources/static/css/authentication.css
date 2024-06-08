@@ -51,17 +51,31 @@
   cursor: pointer;
 }
 
-.container > form ul {
-  margin-top: 24px;
-  width: 100%;
+.container > form button:hover {
+  position: relative;
+  bottom: 1px;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  box-shadow: 0 2px 2px 1px gray;
 }
 
-.container > form > ul > li > a {
+.container > form > a.dismiss {
+  margin-top: 24px;
+  align-self: flex-start;
+  text-decoration: underline;
+  color: blue;
+  font-weight: 600;
+}
+
+.container > form > ul.actions {
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container > form > ul.actions > li > a {
   text-decoration: underline;
   color: blue;
   font-weight: 600;
