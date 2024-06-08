@@ -1,25 +1,12 @@
 package io.github.znak99.spring_todo_example.repository;
 
 import io.github.znak99.spring_todo_example.domain.User;
-import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-@Repository
-@RequiredArgsConstructor
-public class UserRepository {
-    private final EntityManager entityManager;
-
-    public void saveUser(User user) {
-        entityManager.persist(user);
-    }
-
-    public List<User> findUserByEmail(String email) {
-        return entityManager.createQuery("SELECT m FROM User m WHERE m.email = :email", User.class)
-                .setParameter("email", email)
-                .getResultList();
-    }
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findUserByEmail(String email);
 
 }

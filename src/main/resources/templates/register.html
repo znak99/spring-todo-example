@@ -27,6 +27,7 @@
     <div class="container">
       <!-- Form -->
       <form action="/signup" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <h1>Sign up</h1>
         <label for="email">Email</label>
         <input required type="email" name="email" id="email" />
