@@ -1,6 +1,7 @@
 package io.github.znak99.spring_todo_example.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -12,7 +13,7 @@ public class AuthenticationController {
     }
 
     @GetMapping("/signup")
-    public String signup() {
+    public String signup(Model model) {
         return "register";
     }
 
