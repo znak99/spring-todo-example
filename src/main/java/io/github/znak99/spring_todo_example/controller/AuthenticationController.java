@@ -3,11 +3,15 @@ package io.github.znak99.spring_todo_example.controller;
 import io.github.znak99.spring_todo_example.domain.User;
 import io.github.znak99.spring_todo_example.dto.UserDTO;
 import io.github.znak99.spring_todo_example.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -18,6 +22,12 @@ public class AuthenticationController {
     @GetMapping("/signin")
     public String signin() {
         return "login";
+    }
+
+    @GetMapping("/signout")
+    public String signout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/signin";
     }
 
     @GetMapping("/signup")

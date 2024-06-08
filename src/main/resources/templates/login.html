@@ -26,12 +26,13 @@
     <!-- Container -->
     <div class="container">
       <!-- Form -->
-      <form action="" method="post">
+      <form action="/signin" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <h1>Sign in</h1>
         <label for="email">Email</label>
-        <input required type="email" name="" id="email" />
+        <input required type="email" name="username" id="email" />
         <label for="password">Password</label>
-        <input required type="password" name="" id="password" />
+        <input required type="password" name="password" id="password" />
         <button type="submit">Sign in</button>
         <ul class="actions">
           <li><a th:href="@{/email-authenticate}">Reset password</a></li>

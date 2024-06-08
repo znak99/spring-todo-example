@@ -3,18 +3,15 @@ package io.github.znak99.spring_todo_example.domain;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Getter
-public class User implements UserDetails {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_gen")
@@ -47,9 +44,5 @@ public class User implements UserDetails {
         this.createdAt = Timestamp.from(now);
     }
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }
+    protected User() {}
 }

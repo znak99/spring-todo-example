@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
   <head>
     <!-- Meta data -->
     <meta charset="UTF-8" />
@@ -24,16 +24,16 @@
   </head>
   <body>
     <!-- Container -->
-    <div class="container">
+    <div class="container" sec:authorize="isAuthenticated()">
       <!-- Header -->
       <header>
         <h1>TODOLIST</h1>
         <ul class="actions">
           <li class="add-todo"><a th:href="@{/add}">Add Todo</a></li>
-          <li class="sign-out"><a th:href="@{/logout}">Sign out</a></li>
+          <li class="sign-out"><a th:href="@{/signout}">Sign out</a></li>
         </ul>
       </header>
-      <span th:text="'Username : '">Username : znak99</span>
+      <span th:text="'Username : ' + ${user.username}">Username : znak99</span>
 
       <!-- Case1 : no todos -->
       <h3>There's no task!</h3>

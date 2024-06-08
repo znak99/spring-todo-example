@@ -1,5 +1,6 @@
 package io.github.znak99.spring_todo_example.service;
 
+import io.github.znak99.spring_todo_example.domain.Role;
 import io.github.znak99.spring_todo_example.domain.User;
 import io.github.znak99.spring_todo_example.dto.UserDTO;
 import io.github.znak99.spring_todo_example.repository.UserRepository;
@@ -13,9 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -25,6 +24,10 @@ public class UserService implements UserDetailsService {
 
     public List<User> findAll(){
         return userRepository.findAll();
+    }
+
+    public Optional<User> findUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
     }
 
     @Transactional
@@ -37,9 +40,17 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        System.out.println("email: >> " + email);
         Optional<User> findName = userRepository.findUserByEmail(email);
-        User user = findName.get();
+        User member = findName.get();
 
-        return new User(user.getUsername(), user.getEmail() , user.getPassword());
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        if(("admin@admin.com").equals(email)){
+            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+        }else {
+            authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+        }
+        return new org.springframework.security.core.userdetails.User(member.getEmail(), member.getPassword(), authorities);
     }
 }
