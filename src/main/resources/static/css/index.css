@@ -1,0 +1,140 @@
+.line-through {
+  text-decoration: line-through;
+  color: darkgray;
+}
+
+.container > header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+
+  font-size: 1.2rem;
+}
+
+.container > header > ul.actions {
+  display: flex;
+}
+
+.container > header > ul.actions > li {
+  margin: auto 12px;
+}
+
+.container > header > ul.actions > li > a {
+  padding: 4px 16px;
+
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+
+  border-radius: 4px;
+}
+
+.container > header > ul.actions > li > a:hover {
+  position: relative;
+  bottom: 1px;
+
+  box-shadow: 0 2px 2px 1px gray;
+}
+
+.container > header > ul.actions > li.add-todo > a {
+  background-color: black;
+}
+
+.container > header > ul.actions > li.sign-out > a {
+  background-color: crimson;
+}
+
+.container > h3 {
+  margin-top: 24px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: gray;
+}
+
+.container > p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: coral;
+}
+
+.container > p > span {
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  background-color: black;
+  padding: 2px 12px;
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.container > ol {
+  margin-top: 12px;
+}
+
+.container > ol > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(240, 240, 240);
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 24px;
+  box-shadow: 2px 4px 5px 0px rgb(219, 219, 219);
+}
+
+.container > ol > li > span.created-at {
+  color: gray;
+  font-size: 0.8rem;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.container > ol > li > p {
+  color: black;
+  font-size: 1rem;
+  font-weight: 400;
+  align-self: flex-start;
+}
+
+.container > ol > li > ul {
+  align-self: flex-end;
+
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container > ol > li > ul > li > a {
+  color: black;
+
+  padding: 2px 16px;
+  border-radius: 4px;
+}
+
+.container > ol > li > ul > li > a:hover {
+  position: relative;
+  bottom: 1px;
+
+  box-shadow: 0 1px 1px 0px gray;
+}
+
+.container > ol > li > ul > li > a.done {
+  background-color: lightskyblue;
+}
+
+.container > ol > li > ul > li > a.edit {
+  background-color: lightgreen;
+}
+
+.container > ol > li > ul > li > a.delete {
+  background-color: lightpink;
+}
