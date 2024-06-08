@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta data -->
     <meta charset="UTF-8" />
@@ -9,8 +9,16 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/global.css" />
-    <link rel="stylesheet" href="../static/css/delete-confirm.css" />
+    <link
+      rel="stylesheet"
+      href="../static/css/global.css"
+      th:href="@{/css/global.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/delete-confirm.css"
+      th:href="@{/css/delete-confirm.css}"
+    />
     <!-- Title -->
     <title>TodoList | Delete confirm</title>
   </head>
@@ -29,7 +37,7 @@
         necessitatibus facilis.
       </p>
       <form action="" method="post">
-        <a href="">NO</a>
+        <a th:href="@{/}">NO</a>
         <button type="submit">YES</button>
       </form>
     </div>

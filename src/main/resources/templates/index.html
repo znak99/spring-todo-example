@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta data -->
     <meta charset="UTF-8" />
@@ -9,8 +9,16 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/global.css" />
-    <link rel="stylesheet" href="../static/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="../static/css/global.css"
+      th:href="@{/css/global.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/index.css"
+      th:href="@{/css/index.css}"
+    />
     <!-- Title -->
     <title>TodoList</title>
   </head>
@@ -21,18 +29,20 @@
       <header>
         <h1>TODOLIST</h1>
         <ul class="actions">
-          <li class="add-todo"><a href="">Add Todo</a></li>
-          <li class="sign-out"><a href="">Sign out</a></li>
+          <li class="add-todo"><a th:href="@{/add}">Add Todo</a></li>
+          <li class="sign-out"><a th:href="@{/logout}">Sign out</a></li>
         </ul>
       </header>
-      <span>Username : znak99</span>
+      <span th:text="'Username : '">Username : znak99</span>
 
       <!-- Case1 : no todos -->
-      <h3>There's no task!</h3>
-      <p>Click <span>Add Todo</span> to add a task.</p>
+      <h3 >There's no task!</h3>
+      <p >
+        Click <span>Add Todo</span> to add a task.
+      </p>
 
       <!-- Case2 : One or more tasks -->
-      <ol>
+      <ol >
         <li>
           <span class="created-at">Created at 2024.06.08</span>
           <p class="">
@@ -43,33 +53,13 @@
           </p>
           <ul>
             <li>
-              <a class="done" href="">done</a>
+              <a class="done" th:href="@{/done}">done</a>
             </li>
             <li>
-              <a class="edit" href="">edit</a>
+              <a class="edit" th:href="@{/edit}">edit</a>
             </li>
             <li>
-              <a class="delete" href="">delete</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <span class="created-at">Created at 2024.06.08</span>
-          <p class="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-            dolores sunt nostrum deserunt molestiae omnis expedita odit
-            mollitia. Possimus doloribus non amet mollitia blanditiis ut iure,
-            placeat nisi eligendi autem?
-          </p>
-          <ul>
-            <li>
-              <a class="done" href="">done</a>
-            </li>
-            <li>
-              <a class="edit" href="">edit</a>
-            </li>
-            <li>
-              <a class="delete" href="">delete</a>
+              <a class="delete" th:href="@{/delete-confirm}">delete</a>
             </li>
           </ul>
         </li>

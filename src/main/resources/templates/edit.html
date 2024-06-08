@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta data -->
     <meta charset="UTF-8" />
@@ -9,8 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/global.css" />
-    <link rel="stylesheet" href="../static/css/edit.css" />
+    <link rel="stylesheet" href="../static/css/global.css" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" href="../static/css/edit.css" th:href="@{/css/edit.css}" />
     <!-- Title -->
     <title>TodoList | Edit</title>
   </head>
@@ -20,7 +20,7 @@
       <!-- Header -->
       <header>
         <h1>TODOLIST</h1>
-        <a class="dismiss" href="">Back</a>
+        <a class="dismiss" th:href="@{/}">Back</a>
       </header>
 
       <h3><span>●</span>Edit task</h3>
