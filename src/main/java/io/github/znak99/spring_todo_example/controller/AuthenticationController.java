@@ -1,11 +1,9 @@
 package io.github.znak99.spring_todo_example.controller;
 
-import io.github.znak99.spring_todo_example.domain.User;
 import io.github.znak99.spring_todo_example.dto.UserDTO;
 import io.github.znak99.spring_todo_example.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +40,6 @@ public class AuthenticationController {
             @RequestParam("password") String password,
             @RequestParam("password-check") String passwordCheck
     ) {
-
         if (!password.equals(passwordCheck)) {
             return "register";
         }

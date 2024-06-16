@@ -26,6 +26,7 @@ public class TodoController {
             String username = authentication.getName();
             Optional<User> userOptional = userService.findUserByEmail(username);
             User user = userOptional.get();
+
             model.addAttribute("user", user);
 
             return "index";
@@ -40,7 +41,11 @@ public class TodoController {
     }
 
     @GetMapping("/edit")
-    public String edit() {
+    public String edit(Model model) {
+        int result = 0;
+
+        model.addAttribute("result", result);
+
         return "edit";
     }
 
